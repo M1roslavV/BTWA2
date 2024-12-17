@@ -1,0 +1,1 @@
+"%~dp0MySQL\bin\mysqld.exe" --standalone
