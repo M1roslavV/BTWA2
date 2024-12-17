@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+
+.btn1{
+  text-decoration: none;
+  width: fit-content;
+  border-radius: 7px;
+  padding: 6.5px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: $color-C !important;
+  background-color: $color-B !important;
+
+  &:hover {
+    background-color: #480000ac !important;
+    box-shadow: 1px 1px 1px #480000ac !important;
+  }
+}

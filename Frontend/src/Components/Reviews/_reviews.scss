@@ -1,0 +1,100 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.main-review{
+  width: 100%;
+  padding: 70px 0;
+  position: relative;
+  background-color: #343a40;
+  color: $color-C;
+
+  .review-container{
+    display: flex;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    border: 2px solid $color-F;
+    border-radius: 10px;
+    padding: 20px;
+    @include responsive(770px){width: 60%;}
+    @include responsive(1500px){width: 50%}
+    @include responsive(1900px){width: 30%}
+
+    .review-item{
+      width: 100%;
+      display: none;
+      text-align: center;
+
+      >img{
+        width: 40%;
+        margin: 0 30%;
+        @include responsive(770px){
+          width: 30%;
+          margin: 0 35%;
+        }
+        @include responsive(1500px){
+          width: 22%;
+          margin: 0 39%;
+        }
+      }
+
+      >p{
+        font-size: $font-size_p;
+        line-height: 1.7;
+      }
+
+      >h4{
+        width: 100%;
+        padding-top: 12px;
+        font-size: $font-size-h4;
+      }
+
+      &.active{
+        display: block;
+      }
+    }
+  }
+}
+
+.review-buttons{
+  display: flex;
+  width: 25%;
+  justify-content: center;
+  margin: 15px auto;
+  position: relative;
+
+  #prevR{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 4px;
+    background-color: $color-F;
+    @include responsive(600px){width: 35px; height: 35px;}
+
+    &::before{
+      position: absolute;
+      content: "";
+      transform: rotate(90deg);
+      top: 10px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 10px 0 10px;
+      border-color: $color-C transparent transparent transparent;
+      @include responsive(600px){border-width: 12px 12px 0 12px;}
+    }
+  }
+
+  #nextR{
+    cursor: pointer;
+    line-height: 2;
+    background-color: $color-B;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 0 10px;
+  }
+}
+
+
+

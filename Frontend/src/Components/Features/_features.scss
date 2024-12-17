@@ -1,0 +1,54 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.cards{
+  background-color: $color-E;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @include responsive(600px){
+    padding: 10px 60px;
+  }
+@include responsive(770px){
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+  .card{
+    border-radius: 10px;
+    padding: 50px 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @include responsive(770px){
+      width: 48.7%;
+    }
+    @include responsive(1500px){
+      width: 24.4%;
+    }
+
+    &:nth-child(even){
+      background-color: #495057;
+    }
+    &:nth-child(odd){
+      background-color: #343a40;
+    }
+
+    .card-img-top{
+      filter: invert(100%);
+    }
+    .card-body{
+      color: $color-C;
+      text-align: center;
+      h5{
+        font-size: $font_size_h5;
+        margin: 25px 0 15px 0;
+      }
+      p{
+        font-size: $font_size_p;
+        line-height: 1.7;
+      }
+    }
+  }
+}

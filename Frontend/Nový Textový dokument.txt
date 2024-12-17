@@ -1,0 +1,116 @@
+SELECT * FROM myproperty.user;
+SELECT * FROM myproperty.company;
+SELECT * FROM myproperty.category;
+SELECT * FROM myproperty.property;
+SELECT * FROM myproperty.location;
+SELECT * FROM myproperty.file;
+SELECT * FROM myproperty.type;
+SELECT * FROM myproperty.property_history;
+SELECT * FROM myproperty.type_changes;
+
+CREATE USER 'MyProperty'@'localhost' IDENTIFIED BY 'MyProperty';
+GRANT ALL PRIVILEGES ON myproperty.* TO 'MyProperty'@'localhost';
+
+
+
+INSERT INTO myproperty.category (id, name)
+VALUES
+(1, 'Computers'),
+(2, 'Cars'),
+(3, 'Phones'),
+(4, 'Tools'),
+(5, 'Software');
+
+INSERT INTO myproperty.location (name, company_id) VALUES
+('Car park', 1),
+('Warehouse', 1),
+('IT Department', 1),
+('Accounting Department', 1),
+('Marketing Department', 1),
+('HR Department', 1);
+
+
+INSERT INTO myproperty.property (inventory_number, name, price, responsible_people, category_id, location_id)
+VALUES
+('SMO000001', 'Microsoft Office', 2990.99, 'Miroslav Vacek', 5, 5),
+('P000001', 'iPhone 13 Pro Max', 10990.00, 'Miroslav Vacek', 3, 5),
+('CHE000002', 'HP EliteBook 850', 12000.00, 'Miroslav Vacek', 1, 2),
+('SAP000002', 'Adobe Photoshop', 200.99, 'Miroslav Vacek', 5, 6),
+('SOD000005', 'Oracle Database', 5000.00, 'Miroslav Vacek', 5, 3),
+('CPTC000004', 'Toyota Corolla',700000, 'Miroslav Vacek', 2, 1),
+('PSGS000002', 'Samsung Galaxy S21', 7990.99, 'Miroslav Vacek', 3, 6),
+('PXM000005', 'Xiaomi Mi 11', 7490.99, 'Miroslav Vacek', 3, 3),
+('CPFF000002', 'Ford Focus', 500000, 'Miroslav Vacek', 2, 1),
+('CDP000003', 'Dell Precision 3560', 15000.00, 'Miroslav Vacek', 1, 3),
+('CAM000004', 'Apple MacBook Pro', 20000.00, 'Miroslav Vacek', 1, 4),
+('CPHCC000005', 'Honda Civic', 400000, 'Miroslav Vacek', 2, 1);
+
+
+INSERT INTO myproperty.file (name, path,  property_id, type_id, action)
+VALUES
+('phone_1714381323884.jpg', '.\files\miroslavvacek@post.cz\phone_1714381323884.jpg', 2, 1, 'ok'),  /*phone 3*/
+('phone_1714381323884.jpg', '.\files\miroslavvacek@post.cz\phone_1714381323884.jpg', 8, 1, 'ok'),  /*phone 3*/
+('phone_1714381323884.jpg', '.\files\miroslavvacek@post.cz\phone_1714381323884.jpg', 7, 1, 'ok'),  /*phone 3*/
+('pcx_1714381323757.jpg', '.\files\miroslavvacek@post.cz\pcx_1714381323757.jpg', 3, 1, 'ok'), /*pc 1*/
+('pcx_1714381323757.jpg', '.\files\miroslavvacek@post.cz\pcx_1714381323757.jpg', 10, 1, 'ok'), /*pc 1*/
+('pcx_1714381323757.jpg', '.\files\miroslavvacek@post.cz\pcx_1714381323757.jpg', 11, 1, 'ok'), /*pc 1*/
+('car_1714381323390.jpg', '.\files\miroslavvacek@post.cz\car_1714381323390.jpg', 6, 1, 'ok'),  /*car 2*/
+('car_1714381323390.jpg', '.\files\miroslavvacek@post.cz\car_1714381323390.jpg', 9, 1, 'ok'),  /*car 2*/
+('car_1714381323390.jpg', '.\files\miroslavvacek@post.cz\car_1714381323390.jpg', 12, 1, 'ok'),  /*car 2*/
+('pc_171438201323555.jpg', '.\files\miroslavvacek@post.cz\pc_171438201323555.jpg', 1, 1, 'ok'), /*software 5*/
+('pc_171438201323555.jpg', '.\files\miroslavvacek@post.cz\pc_171438201323555.jpg', 4, 1, 'ok'), /*software 5*/
+('pc_171438201323555.jpg', '.\files\miroslavvacek@post.cz\pc_171438201323555.jpg', 5, 1, 'ok'); /*software 5*/
+
+
+
+
+
+INSERT INTO myproperty.type_changes (name) VALUES
+('Inventory number'),
+('Property name'),
+('Category'),
+('Location'),
+('Price'),
+('Responsible user'),
+('Profil image of Property'),
+('Images of Property'),
+('Invoices of Property');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE myproperty.location;
+TRUNCATE TABLE myproperty.category;
+TRUNCATE TABLE myproperty.property;
+TRUNCATE TABLE myproperty.file;
+TRUNCATE TABLE myproperty.type;
+TRUNCATE TABLE myproperty.property_history;
+
+TRUNCATE TABLE myproperty.user;
+TRUNCATE TABLE myproperty.company;
+
+DROP TABLE myproperty.location;
+DROP TABLE myproperty.category;
+DROP TABLE myproperty.property;
+DROP TABLE myproperty.file;
+DROP TABLE myproperty.type;
+
+DROP TABLE myproperty.user;
+DROP TABLE myproperty.company;
+DROP TABLE myproperty.property_history;
+DROP TABLE myproperty.type_changes;
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+

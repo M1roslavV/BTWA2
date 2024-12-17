@@ -1,0 +1,37 @@
+@import "mixins";
+@import "variables";
+@import "../Components/Navbar/navbar";
+@import "../Components/Header/header";
+@import "../Components/Features/features";
+@import "../Components/SectionAboutUs/aboutUs";
+@import "../Components/Contact_form/contact_form";
+@import "../Components/Button1/button1";
+@import "../Components/Reviews/reviews";
+@import "../Components/Pricer/pricer";
+@import "../Components/Footer/footer";
+@import "../Components/Login&Register/login";
+@import "../Pages/Dashboard/dashboard";
+@import "../Components/Cards_property/cardsProperty";
+@import "../Components/App_layout/appLayout";
+@import "../Components/Form_add_update/formAddUpdate";
+@import "../Pages/List_property/listProperty";
+@import "../Pages/Detail_property/detailProperty";
+
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  user-select: none;
+}
+
+body{
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+}
+
+#scroll-aboutUs, #scroll-pricer,  #scroll-service, #scroll-reviews{position: absolute; top: -4rem;}
+
+

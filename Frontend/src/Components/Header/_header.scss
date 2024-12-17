@@ -1,0 +1,76 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+/*header v domovské stránce*/
+.slideshow-container {
+  height: 100vh;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  padding:0 40px;
+
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+    top: 40%;
+
+
+    .carousel-item {
+      max-width: 100%;
+      display: none;
+      text-align: center;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 50px;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      @include responsive(900px){max-width: 60%}
+
+      p{
+        font-size: $font-size-p;
+      }
+
+      h1{
+        font-size: $font-size-h1;
+        padding-bottom: 25px;
+
+      }
+    }
+
+    .active {
+      display: block;
+    }
+  }
+}
+
+
+/*header na stránce o nás*/
+.header-aboutUs{
+  height: 80vh;
+  width: 100%;
+  background-size: 120rem;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-A;
+    opacity: 0.75;
+  }
+
+  &>h2{
+    position: absolute;
+    color: $color-C;
+    bottom: 40%;
+    left: 20%;
+    width: 60%;
+    font-size: calc($font-size-h1 + 5px);
+  }
+}

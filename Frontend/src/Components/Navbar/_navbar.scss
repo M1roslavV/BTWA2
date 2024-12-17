@@ -1,0 +1,230 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    padding: 1rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: rgba(191, 191, 191, 0.4);
+      transition: 200ms ease-out background-color;
+    }
+
+    .navbar-logo {
+      width: 120px;
+      border-radius: 10px;
+      border: 1px solid white;
+      z-index: -1;
+    }
+  }
+
+  .navbar-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    @include responsive(770px){
+      display: none;
+    }
+
+    svg {
+      width: 35px;
+      height: 35px;
+      fill: white;
+      position: relative;
+      display: inline-block;
+
+      &:hover{
+        fill: black;
+        transition: 200ms ease fill;
+      }
+    }
+  }
+
+  .navbar-menu {
+    height: 0;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    position: absolute;
+    transition: height 0.75s ease-in;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0;
+
+    @include responsive(770px){
+      overflow: visible;
+      position: inherit;
+      background-color: unset;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+    }
+
+    &.open {
+      height: 100vh;
+    }
+
+    .navbar-list {
+      list-style: none;
+      margin: 0;
+      padding: 50px 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      @include responsive(770px){
+        padding: 0;
+        flex-direction: row;
+      }
+
+      .navbar-item {
+        .navbar-link {
+          text-decoration: none;
+          color: $color-C;
+          text-align: center;
+          font-size: $font-size-p;
+          &:hover {
+            color: $color-D;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*-----------------------------------
+   Navbar Apps
+-----------------------------------*/
+
+.navbar-apps{
+  width: 100%;
+  height: 55px;
+  background-color: $color-E;
+  @include flex(row, center, space-between);
+
+  .navbar-apps-img{
+    width: 105px;
+    height: 34px;
+    margin-left: 16px;
+    &>img{
+      width: 100%;
+      border-radius: 10px;
+      border: 0.1px solid white;
+      display: none;
+      @include responsive(770px){display: block}
+    }
+  }
+
+  .navbar-icons{
+    margin-right: 50px;
+    &>i{
+      font-size: 20px;
+      color: $color-C;
+      padding:5px;
+      margin: 0 4px;
+
+      &:nth-last-child(1){
+        border-radius: 25px;
+        border: 2px solid white;
+      }
+    }
+  }
+}
+
+
+
+
+/*-----------------------------------
+   Side Navbar
+-----------------------------------*/
+
+.navbar-side{
+  width: 63px;
+  background-color: #6a737b;
+  overflow: hidden;
+  transition: width 0.5s ease-in-out;
+  position: relative;
+  height: 100%;
+
+  @include responsive(670px){
+    position: relative;
+  }
+
+  &.open-side-menu{
+    @include responsive(670px){position: relative;}
+    width: 100% !important;
+    position: absolute;
+    transition: width 0.75s ease-in-out;
+
+
+    @include responsive(670px){
+      width: 200px !important;
+    }
+  }
+
+  .toggle-menu-side{
+    width: 100%;
+    height: 55px;
+    background-color: #6a737b;
+    padding: 12px;
+    cursor: pointer;
+    @include flex(row,center,null);
+
+    &>i{
+      font-size: 38px;
+      color: #000000;
+
+      &:hover{
+        color: #393939;
+      }
+    }
+  }
+
+  .navbar-side-links{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    &>a{
+      text-decoration: none;
+      color: $color-C;
+      padding: 10px;
+      font-size: $font-size-h4;
+      display: flex;
+      &>i{
+        font-size: 18px;
+        padding: 0 25px 0 10px;
+      }
+      &>span{
+        width: 100%;
+        text-align: center;
+
+        @include responsive(670px){
+          width: max-content;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

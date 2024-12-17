@@ -1,0 +1,19 @@
+
+@mixin responsive($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin flex($direction: null, $align: null, $justify: null) {
+  display: flex;
+  @if $direction != null {
+    flex-direction: $direction;
+  }
+  @if $align != null {
+    align-items: $align;
+  }
+  @if $justify != null {
+    justify-content: $justify;
+  }
+}

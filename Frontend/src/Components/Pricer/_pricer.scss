@@ -1,0 +1,82 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.main-pricer{
+  padding: 80px 0;
+  width: 100%;
+  position: relative;
+  background-color: #212529;
+  color:$color-C;
+  @include responsive(1100px){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &>h2{
+    width: fit-content;
+    border-bottom: 2px solid $color-B;
+    margin: 0 auto 30px;
+    font-size: $font-size-h3;
+  }
+
+  .container-pricer{
+    width: 100%;
+    gap: 15px;
+    @include flex(column, null, center);
+    @include responsive(770px){
+      @include flex(row, null, center);
+      flex-wrap: wrap;
+    }
+
+    .pricer-item{
+      width: 80%;
+      border: 2px dashed $color-B;
+      margin: 0 auto;
+      border-radius: 5px;
+      padding: 40px;
+      background-color: #2b2f32;
+      @include flex(column, center, center);
+      @include responsive(770px){width: 43%; margin: 0;}
+      @include responsive(1100px){width: 32%}
+      @include responsive(1400px){width: 25%; max-width: 400px;}
+
+      &>h3{
+        text-align: center;
+        font-size: $font-size-h5;
+      }
+
+      .price{
+        gap: 3px;
+        margin: 18px 0 8px 0;
+        @include flex(null, null, center);
+
+        &>h4{
+          align-self: first baseline;
+          font-size: $font_size_h4;
+        }
+        &>h3{
+          font-size: $font_size_h3;
+          color: $color-B;
+        }
+        &>h5{
+          align-self: last baseline;
+          font-size: $font_size_h4;
+        }
+      }
+
+      .pricer-properties{
+        width: 90%;
+        border-radius: 5px;
+        padding: 30px;
+        margin-bottom: 30px;
+        background-color: #343a40;
+
+        &>p{
+          text-align: center;
+          margin: 0;
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
